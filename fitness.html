@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .container {
+            margin-top: 50px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .info-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .info-container:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+        .info-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #36A2EB;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Fitness Dashboard</h1>
+            <p>Track your health and progress effortlessly</p>
+        </div>
+
+        <div class="info-container">
+            <h3>Heartbeat</h3>
+            <p class="info-value" id="heartbeat">--</p>
+        </div>
+
+        <div class="info-container">
+            <h3>Step Counter</h3>
+            <p class="info-value" id="stepCounter">0</p>
+        </div>
+
+        <div class="info-container">
+            <h3>Calories Burned</h3>
+            <p class="info-value" id="caloriesBurned">0 kcal</p>
+        </div>
+
+        <div class="info-container">
+            <h3>Distance Traveled</h3>
+            <p class="info-value" id="distanceTraveled">0 km</p>
+        </div>
+
+        <div class="info-container">
+            <h3>Active Time</h3>
+            <p class="info-value" id="activeTime">0 min</p>
+        </div>
+
+        <div class="info-container">
+            <h3>Average Heart Rate</h3>
+            <p class="info-value" id="avgHeartbeat">--</p>
+        </div>
+
+        <div class="info-container">
+            <h3>Fitness Level</h3>
+            <p class="info-value" id="fitnessLevel">--</p>
+        </div>
+    </div>
+
+    <script>
+        // Heartbeat simulation
+        let heartRates = [];
+        function updateHeartbeat() {
+            const heartbeatElement = document.getElementById('heartbeat');
+            const heartbeat = Math.floor(60 + Math.random() * 40); // Random between 60-100 BPM
+            heartRates.push(heartbeat);
+            if (heartRates.length > 5) heartRates.shift(); // Keep only the last 5 readings
+            const avgHeartbeat = heartRates.reduce((a, b) => a + b, 0) / heartRates.length;
+            document.getElementById('avgHeartbeat').textContent = ${avgHeartbeat.toFixed(1)} BPM;
+            heartbeatElement.textContent = ${heartbeat} BPM;
+        }
+        setInterval(updateHeartbeat, 2000); // Update every 2 seconds
+
+        // Step counter with motion detection
+        let steps = 0;
+        let calories = 0;
+        let distance = 0;
+        let activeTime = 0;
+        let lastMotionTime = Date.now();
+
+        function initializeMotionDetection() {
+            if (window.DeviceMotionEvent) {
+                window.addEventListener('devicemotion', (event) => {
+                    const acceleration = event.acceleration;
+                    const threshold = 1.5; // Adjust sensitivity as needed
+
+                    if (acceleration && (Math.abs(acceleration.x) > threshold || Math.abs(acceleration.y) > threshold || Math.abs(acceleration.z) > threshold)) {
+                        const currentTime = Date.now();
+                        if (currentTime - lastMotionTime > 60000) {
+                            activeTime++;
+                            document.getElementById('activeTime').textContent = ${activeTime} min;
+                            lastMotionTime = currentTime;
+                        }
+
+                        steps++;
+                        calories = steps * 0.04; // Approximation: 0.04 kcal burned per step
+                        distance = steps * 0.0008; // Approximation: 0.0008 km per step
+                        document.getElementById('stepCounter').textContent = steps;
+                        document.getElementById('caloriesBurned').textContent = ${calories.toFixed(2)} kcal;
+                        document.getElementById('distanceTraveled').textContent = ${distance.toFixed(2)} km;
+                    }
+                });
+            } else {
+                alert('Device motion detection is not supported on this device.');
+            }
+        }
+
+        // Fitness level based on steps, calories burned, and active time
+        function updateFitnessLevel() {
+            let fitnessLevelText = "Low";
+            if (steps > 1000 && calories > 50) {
+                fitnessLevelText = "Medium";
+            }
+            if (steps > 5000 && calories > 200 && activeTime > 30) {
+                fitnessLevelText = "High";
+            }
+            document.getElementById('fitnessLevel').textContent = fitnessLevelText;
+        }
+
+        // Initialize motion detection and timers
+        initializeMotionDetection();
+        setInterval(updateFitnessLevel, 60000); // Update fitness level every minute
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

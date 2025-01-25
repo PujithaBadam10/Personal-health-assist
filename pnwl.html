@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Non-Veg Diet Plan for Weight Loss</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #74a9d8, #3498db); /* Blue gradient background */
+            color: #333;
+        }
+
+        .header {
+            background-color: #3498db; /* Darker blue */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .meal-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .meal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .meal-card h3 {
+            font-size: 20px;
+            color: #3498db; /* Blue color */
+            margin-bottom: 10px;
+        }
+
+        .meal-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .complete-button {
+            background: #3498db; /* Blue color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .complete-button:hover {
+            background: #2c6a99; /* Darker blue on hover */
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.5);
+        }
+
+        .completed {
+            background: #2c6a99; /* Darker blue for completed */
+        }
+
+        .status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #7fb3d5; /* Lighter blue for status */
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .status.completed {
+            background: #48c774; /* Greenish color for completed */
+        }
+
+        .diet-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .diet-title {
+            text-align: center;
+            font-size: 24px;
+            color: #3498db;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Pure Non-Veg Diet Plan for Weight Loss</div>
+
+    <!-- Pure Non-Veg Diet Plan -->
+    <div class="diet-section">
+        <div class="diet-title">Non-Vegetarian Diet Plan</div>
+        <div class="container">
+            <div class="meal-card" id="meal1">
+                <h3>Breakfast: Scrambled Eggs with Avocado</h3>
+                <p>Scrambled eggs with avocado and a side of spinach for a low-calorie, high-protein breakfast.</p>
+                <button class="complete-button" onclick="markCompleted('meal1')">Mark as Completed</button>
+                <div class="status" id="status-meal1">Pending</div>
+            </div>
+            <div class="meal-card" id="meal2">
+                <h3>Lunch: Grilled Chicken Salad</h3>
+                <p>Grilled chicken with mixed greens, cucumber, and olive oil for a protein-rich, low-calorie lunch.</p>
+                <button class="complete-button" onclick="markCompleted('meal2')">Mark as Completed</button>
+                <div class="status" id="status-meal2">Pending</div>
+            </div>
+            <div class="meal-card" id="meal3">
+                <h3>Snack: Boiled Eggs</h3>
+                <p>Two boiled eggs with a sprinkle of black pepper for a quick, healthy snack.</p>
+                <button class="complete-button" onclick="markCompleted('meal3')">Mark as Completed</button>
+                <div class="status" id="status-meal3">Pending</div>
+            </div>
+            <div class="meal-card" id="meal4">
+                <h3>Dinner: Grilled Fish with Asparagus</h3>
+                <p>Grilled fish with steamed asparagus and a side of mixed veggies for a lean, low-calorie dinner.</p>
+                <button class="complete-button" onclick="markCompleted('meal4')">Mark as Completed</button>
+                <div class="status" id="status-meal4">Pending</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function markCompleted(mealId) {
+            const card = document.getElementById(mealId);
+            const status = document.getElementById(status-${mealId});
+            const button = card.querySelector('.complete-button');
+
+            if (!card.classList.contains('completed')) {
+                card.classList.add('completed');
+                status.textContent = "Completed";
+                status.classList.add('completed');
+                button.textContent = "Completed!";
+                button.classList.add('completed');
+                button.disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>

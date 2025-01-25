@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Gain Plan</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #a2c2e3, #507d8d);
+            color: #333;
+        }
+
+        .header {
+            background-color: #2d72d9;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .day-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .day-card h3 {
+            font-size: 20px;
+            color: #2d72d9;
+            margin-bottom: 10px;
+        }
+
+        .day-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .complete-button {
+            background: #2d72d9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .complete-button:hover {
+            background: #1f5ca3;
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(45, 114, 217, 0.5);
+        }
+
+        .completed {
+            background: #1f5ca3;
+        }
+
+        .status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #6c8baf;
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .status.completed {
+            background: #48c774;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Weight Gain Workout Plan</div>
+    <div class="container">
+        <div class="day-card" id="day1">
+            <h3>Day 1: Chest and Triceps</h3>
+            <p>Bench Press, Push-Ups, Tricep Extensions</p>
+            <button class="complete-button" onclick="markCompleted('day1')">Mark as Completed</button>
+            <div class="status" id="status-day1">Pending</div>
+        </div>
+        <div class="day-card" id="day2">
+            <h3>Day 2: Back and Biceps</h3>
+            <p>Pull-Ups, Deadlifts, Dumbbell Curls</p>
+            <button class="complete-button" onclick="markCompleted('day2')">Mark as Completed</button>
+            <div class="status" id="status-day2">Pending</div>
+        </div>
+        <div class="day-card" id="day3">
+            <h3>Day 3: Rest Day</h3>
+            <p>Hydration & Nutrition Focus</p>
+            <button class="complete-button" onclick="markCompleted('day3')">Mark as Completed</button>
+            <div class="status" id="status-day3">Pending</div>
+        </div>
+        <div class="day-card" id="day4">
+            <h3>Day 4: Shoulders and Core</h3>
+            <p>Overhead Press, Plank Variations</p>
+            <button class="complete-button" onclick="markCompleted('day4')">Mark as Completed</button>
+            <div class="status" id="status-day4">Pending</div>
+        </div>
+        <div class="day-card" id="day5">
+            <h3>Day 5: Legs</h3>
+            <p>Squats, Lunges, Calf Raises</p>
+            <button class="complete-button" onclick="markCompleted('day5')">Mark as Completed</button>
+            <div class="status" id="status-day5">Pending</div>
+        </div>
+        <div class="day-card" id="day6">
+            <h3>Day 6: Full Body</h3>
+            <p>Circuit Training, Compound Movements</p>
+            <button class="complete-button" onclick="markCompleted('day6')">Mark as Completed</button>
+            <div class="status" id="status-day6">Pending</div>
+        </div>
+        <div class="day-card" id="day7">
+            <h3>Day 7: Recovery and Stretching</h3>
+            <p>Focus on flexibility and relaxation</p>
+            <button class="complete-button" onclick="markCompleted('day7')">Mark as Completed</button>
+            <div class="status" id="status-day7">Pending</div>
+        </div>
+    </div>
+
+    <script>
+        function markCompleted(dayId) {
+            const card = document.getElementById(dayId);
+            const status = document.getElementById(status-${dayId});
+            const button = card.querySelector('.complete-button');
+
+            if (!card.classList.contains('completed')) {
+                card.classList.add('completed');
+                status.textContent = "Completed";
+                status.classList.add('completed');
+                button.textContent = "Completed!";
+                button.classList.add('completed');
+                button.disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>

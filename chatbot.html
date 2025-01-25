@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Health Tips">
+    <meta name="keywords" content="health, wellness, tips, university, fitness, nutrition">
+    <meta name="author" content="Badam Poorna Pujitha">
+    <title>Health Tips - Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .chat-container {
+            width: 50%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .chat-box {
+            height: 400px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #fafafa;
+        }
+        .user-input {
+            margin-top: 10px;
+            display: flex;
+        }
+        .user-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .user-input button {
+            padding: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        .user-input button:hover {
+            background-color: #45a049;
+        }
+        .chat-bubble {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            width: fit-content;
+            max-width: 80%;
+        }
+        .bot {
+            background-color: #e7f7e9;
+        }
+        .user {
+            background-color: #d1eaff;
+            margin-left: auto;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            padding: 14px 20px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .section h2 {
+            color: #4CAF50;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Health Tips - Fitness Chatbot</h1>
+    <p>Your guide to maintaining a healthy and balanced lifestyle</p>
+</header>
+
+<div class="chat-container">
+    <div class="chat-box" id="chatBox"></div>
+    <div class="user-input">
+        <input type="text" id="userInput" placeholder="Ask me about fitness..." />
+        <button onclick="getResponse()">Send</button>
+    </div>
+</div>
+
+<script>
+    function getResponse() {
+        let userInput = document.getElementById('userInput').value;
+        let chatBox = document.getElementById('chatBox');
+        
+        // Add user message to chatbox
+        let userMessage = document.createElement('div');
+        userMessage.className = 'chat-bubble user';
+        userMessage.textContent = userInput;
+        chatBox.appendChild(userMessage);
+
+        let botResponse = "";
+        
+        if (userInput.toLowerCase().includes("hello")) {
+            botResponse = "Hello! How can I help you with your fitness journey today?";
+        } else if (userInput.toLowerCase().includes("fitness tips")) {
+            botResponse = "Some fitness tips: Stay consistent, mix cardio and strength training, warm up properly, and listen to your body.";
+        } else if (userInput.toLowerCase().includes("beginner workout")) {
+            botResponse = "For beginners: 3 days a week of full-body exercises like squats, push-ups, and lunges. 20 minutes of brisk walking is great too!";
+        } else if (userInput.toLowerCase().includes("intermediate workout")) {
+            botResponse = "For intermediate level: Try 4 days a week with split workouts focusing on different muscle groups. Add 30 minutes of cardio, like jogging or cycling.";
+        } else if (userInput.toLowerCase().includes("advanced workout")) {
+            botResponse = "For advanced level: 5-6 days a week of HIIT combined with strength training. You can also include 40 minutes of running or swimming.";
+        } else if (userInput.toLowerCase().includes("nutrition")) {
+            botResponse = "For fitness nutrition: Eat balanced meals with proteins, healthy fats, and complex carbs. Stay hydrated and avoid processed foods.";
+        }  else if (userInput.toLowerCase().includes("how are you")) {
+    botResponse = "I'm just a bot, but I'm here to help you!";
+} else if (userInput.toLowerCase().includes("thank you")) {
+    botResponse = "You're welcome! Feel free to ask more questions.";
+} else if (userInput.toLowerCase().includes("how to stay healthy")) {
+    botResponse = "To stay healthy, eat balanced meals, exercise regularly, and get enough sleep.";
+} else if (userInput.toLowerCase().includes("exercise tips")) {
+    botResponse = "Aim for at least 30 minutes of moderate exercise, 5 days a week. Include cardio and strength training!";
+} else if (userInput.toLowerCase().includes("healthy diet")) {
+    botResponse = "A healthy diet includes vegetables, fruits, lean proteins, and whole grains while minimizing processed foods.";
+} else if (userInput.toLowerCase().includes("how to sleep better")) {
+    botResponse = "To sleep better, maintain a consistent schedule, avoid screens before bed, and keep your room dark and cool.";
+} else if (userInput.toLowerCase().includes("stress management")) {
+    botResponse = "For managing stress, try deep breathing exercises, meditation, or even a short walk to clear your mind.";
+} else if (userInput.toLowerCase().includes("how to boost immune system")) {
+    botResponse = "You can boost your immune system with regular exercise, a healthy diet, sufficient sleep, and staying hydrated.";
+} else if (userInput.toLowerCase().includes("importance of hydration")) {
+    botResponse = "Staying hydrated is crucial for your body. Aim for 8-10 glasses of water a day to support overall health.";
+} else if (userInput.toLowerCase().includes("benefits of walking")) {
+    botResponse = "Walking helps improve cardiovascular health, strengthens muscles, and boosts your mood.";
+} else if (userInput.toLowerCase().includes("how to maintain mental health")) {
+    botResponse = "To maintain mental health, practice mindfulness, stay connected with loved ones, and take regular breaks.";
+} else if (userInput.toLowerCase().includes("how to improve digestion")) {
+    botResponse = "To improve digestion, eat more fiber-rich foods, drink water, and consider probiotics like yogurt.";
+} else if (userInput.toLowerCase().includes("healthy snacks")) {
+    botResponse = "Healthy snack options include fruits, nuts, yogurt, or whole-grain crackers with hummus.";
+} else if (userInput.toLowerCase().includes("how to reduce sugar intake")) {
+    botResponse = "To reduce sugar intake, avoid sugary drinks, read labels carefully, and choose fruits for sweetness.";
+} else if (userInput.toLowerCase().includes("heart health tips")) {
+    botResponse = "For a healthy heart, eat a balanced diet, exercise regularly, avoid smoking, and manage stress.";
+} else if (userInput.toLowerCase().includes("posture tips")) {
+    botResponse = "Good posture can prevent back pain. Sit up straight, keep your feet flat, and take breaks to stretch.";
+} else if (userInput.toLowerCase().includes("importance of vitamin d")) {
+    botResponse = "Vitamin D supports bone health and immune function. Get it from sunlight, fortified foods, or supplements.";
+} else if (userInput.toLowerCase().includes("how to maintain eye health")) {
+    botResponse = "To maintain eye health, take regular breaks from screens, eat leafy greens, and schedule regular checkups.";
+} else if (userInput.toLowerCase().includes("importance of regular checkups")) {
+    botResponse = "Regular checkups help catch potential health issues early and ensure you're staying on track with your wellness.";
+} else if (userInput.toLowerCase().includes("hydration")) {
+            botResponse = "Staying hydrated is essential. Drink at least 8 glasses of water daily to support your fitness goals.";
+        } else {
+            botResponse = "I can help with fitness tips, workout plans, or nutrition advice. Ask me something related to fitness!";
+        }
+        
+        // Add bot response to chatbox
+        let botMessage = document.createElement('div');
+        botMessage.className = 'chat-bubble bot';
+        botMessage.textContent = botResponse;
+        chatBox.appendChild(botMessage);
+
+        document.getElementById('userInput').value = '';  // Clear input field
+        chatBox.scrollTop = chatBox.scrollHeight;  // Auto scroll to the bottom
+    }
+</script>
+</body>
+</html>

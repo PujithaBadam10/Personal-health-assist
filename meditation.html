@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Wellness Plan</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #74a9d8, #3498db); /* Blue gradient background */
+            color: #333;
+        }
+
+        .header {
+            background-color: #3498db; /* Darker blue */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .wellness-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .wellness-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .wellness-card h3 {
+            font-size: 20px;
+            color: #3498db; /* Blue color */
+            margin-bottom: 10px;
+        }
+
+        .wellness-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .complete-button {
+            background: #3498db; /* Blue color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .complete-button:hover {
+            background: #2c6a99; /* Darker blue on hover */
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.5);
+        }
+
+        .completed {
+            background: #2c6a99; /* Darker blue for completed */
+        }
+
+        .status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #7fb3d5; /* Lighter blue for status */
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .status.completed {
+            background: #48c774; /* Greenish color for completed */
+        }
+
+        .wellness-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .wellness-title {
+            text-align: center;
+            font-size: 24px;
+            color: #3498db;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Mental Wellness Plan</div>
+
+    <!-- Mental Wellness Plan -->
+    <div class="wellness-section">
+        <div class="wellness-title">Key Areas to Focus on for Mental Wellness</div>
+        <div class="container">
+            <div class="wellness-card" id="meal1">
+                <h3>Mindfulness and Meditation</h3>
+                <p>Practice mindfulness and meditation techniques to calm the mind and improve focus.</p>
+                <button class="complete-button" onclick="markCompleted('meal1')">Mark as Completed</button>
+                <div class="status" id="status-meal1">Pending</div>
+            </div>
+            <div class="wellness-card" id="meal2">
+                <h3>Exercise and Physical Activity</h3>
+                <p>Regular exercise and physical activity improve mental clarity and overall mood.</p>
+                <button class="complete-button" onclick="markCompleted('meal2')">Mark as Completed</button>
+                <div class="status" id="status-meal2">Pending</div>
+            </div>
+            <div class="wellness-card" id="meal3">
+                <h3>Sleep and Rest</h3>
+                <p>Getting enough sleep and rest is essential for mental recovery and emotional stability.</p>
+                <button class="complete-button" onclick="markCompleted('meal3')">Mark as Completed</button>
+                <div class="status" id="status-meal3">Pending</div>
+            </div>
+            <div class="wellness-card" id="meal4">
+                <h3>Stress Management</h3>
+                <p>Learn techniques for managing stress, such as breathing exercises and relaxation techniques.</p>
+                <button class="complete-button" onclick="markCompleted('meal4')">Mark as Completed</button>
+                <div class="status" id="status-meal4">Pending</div>
+            </div>
+            <div class="wellness-card" id="meal5">
+                <h3>Nutrition for Mental Health</h3>
+                <p>Eating a balanced diet with the right nutrients helps support mental clarity and emotional health.</p>
+                <button class="complete-button" onclick="markCompleted('meal5')">Mark as Completed</button>
+                <div class="status" id="status-meal5">Pending</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function markCompleted(mealId) {
+            const card = document.getElementById(mealId);
+            const status = document.getElementById(status-${mealId});
+            const button = card.querySelector('.complete-button');
+
+            if (!card.classList.contains('completed')) {
+                card.classList.add('completed');
+                status.textContent = "Completed";
+                status.classList.add('completed');
+                button.textContent = "Completed!";
+                button.classList.add('completed');
+                button.disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>

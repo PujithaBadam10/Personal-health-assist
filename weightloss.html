@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Loss Workout Plan</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #74a9d8, #3498db); /* Blue gradient background */
+            color: #333;
+        }
+
+        .header {
+            background-color: #3498db; /* Darker blue */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .day-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .day-card h3 {
+            font-size: 20px;
+            color: #3498db; /* Blue color */
+            margin-bottom: 10px;
+        }
+
+        .day-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .complete-button {
+            background: #3498db; /* Blue color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .complete-button:hover {
+            background: #2c6a99; /* Darker blue on hover */
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.5);
+        }
+
+        .completed {
+            background: #2c6a99; /* Darker blue for completed */
+        }
+
+        .status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #7fb3d5; /* Lighter blue for status */
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .status.completed {
+            background: #48c774; /* Greenish color for completed */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Weight Loss Workout Plan</div>
+    <div class="container">
+        <div class="day-card" id="day1">
+            <h3>Day 1: Cardio and Abs</h3>
+            <p>Running, Jump Rope, Bicycle Crunches</p>
+            <button class="complete-button" onclick="markCompleted('day1')">Mark as Completed</button>
+            <div class="status" id="status-day1">Pending</div>
+        </div>
+        <div class="day-card" id="day2">
+            <h3>Day 2: Upper Body Strength</h3>
+            <p>Push-Ups, Pull-Ups, Dumbbell Rows</p>
+            <button class="complete-button" onclick="markCompleted('day2')">Mark as Completed</button>
+            <div class="status" id="status-day2">Pending</div>
+        </div>
+        <div class="day-card" id="day3">
+            <h3>Day 3: Rest Day</h3>
+            <p>Focus on Hydration & Stretching</p>
+            <button class="complete-button" onclick="markCompleted('day3')">Mark as Completed</button>
+            <div class="status" id="status-day3">Pending</div>
+        </div>
+        <div class="day-card" id="day4">
+            <h3>Day 4: Core and Cardio</h3>
+            <p>Planks, Leg Raises, Mountain Climbers</p>
+            <button class="complete-button" onclick="markCompleted('day4')">Mark as Completed</button>
+            <div class="status" id="status-day4">Pending</div>
+        </div>
+        <div class="day-card" id="day5">
+            <h3>Day 5: Lower Body Strength</h3>
+            <p>Squats, Lunges, Calf Raises</p>
+            <button class="complete-button" onclick="markCompleted('day5')">Mark as Completed</button>
+            <div class="status" id="status-day5">Pending</div>
+        </div>
+        <div class="day-card" id="day6">
+            <h3>Day 6: HIIT (High-Intensity Interval Training)</h3>
+            <p>Sprints, Jumping Jacks, Burpees</p>
+            <button class="complete-button" onclick="markCompleted('day6')">Mark as Completed</button>
+            <div class="status" id="status-day6">Pending</div>
+        </div>
+        <div class="day-card" id="day7">
+            <h3>Day 7: Active Recovery</h3>
+            <p>Yoga, Stretching, Walking</p>
+            <button class="complete-button" onclick="markCompleted('day7')">Mark as Completed</button>
+            <div class="status" id="status-day7">Pending</div>
+        </div>
+    </div>
+
+    <script>
+        function markCompleted(dayId) {
+            const card = document.getElementById(dayId);
+            const status = document.getElementById(status-${dayId});
+            const button = card.querySelector('.complete-button');
+
+            if (!card.classList.contains('completed')) {
+                card.classList.add('completed');
+                status.textContent = "Completed";
+                status.classList.add('completed');
+                button.textContent = "Completed!";
+                button.classList.add('completed');
+                button.disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>
